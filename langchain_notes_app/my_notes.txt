@@ -1,0 +1,2 @@
+LangChain is a Python framework for building applications powered by large language models.
+It helps connect LLMs to documents, APIs, and external tools.

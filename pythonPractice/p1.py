@@ -1,11 +1,13 @@
-from pyspark.sql import SparkSession
+from helper_functions import print_llm_response, get_llm_response
 
-# Create a SparkSession
-spark = SparkSession.builder \
-    .appName("CustomerPipeline") \
-    .getOrCreate()
-# Read the CSV into a DataFrame
-customers_df = spark.read.csv("customers.csv", header=True, inferSchema=True)
+context = """
+India is a country in South Asia. Its capital is New Delhi.
+Narendra Modi is the Prime Minister of India.
+The Taj Mahal is located in Agra.
+"""
+name = "india"
+# print_llm_response("What is the capital of India?", context)
+# print_llm_response("Where is the Taj Mahal?", context)
+# print_llm_response("Who is the Prime Minister of India?", context)
 
-# Show data
-customers_df.show()
+print_llm_response("singa song for india{name}", context)
