@@ -3,6 +3,7 @@ from openai import OpenAI
 from datetime import datetime
 import time
 
+import os
 # --- Page Config ---
 st.set_page_config(page_title="OpenRouter Chatbot", layout="centered")
 
@@ -48,9 +49,15 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- OpenRouter Setup ---
+# client = OpenAI(
+#     base_url="https://openrouter.ai/api/v1",
+#     api_key="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"
+# )
+
+
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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"
+    api_key=os.environ["OPENROUTER_API_KEY"]
 )
 
 st.title("🤖 OpenRouter-Powered Chatbot")
